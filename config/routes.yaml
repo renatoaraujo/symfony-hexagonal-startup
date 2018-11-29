@@ -1,0 +1,4 @@
+index:
+  path: /example
+  methods: [GET]
+  controller: App\Application\Http\Example\GetExampleData
