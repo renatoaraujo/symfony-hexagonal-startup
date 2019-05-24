@@ -5,6 +5,7 @@ namespace App\Infrastructure\Database\DoctrineEntity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ORM\Entity
@@ -32,7 +33,7 @@ class Example
         $this->value = $value;
     }
 
-    public function getId(): \Ramsey\Uuid\UuidInterface
+    public function getId(): UuidInterface
     {
         return $this->id;
     }

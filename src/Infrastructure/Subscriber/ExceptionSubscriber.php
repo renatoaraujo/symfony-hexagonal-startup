@@ -4,12 +4,11 @@ declare(strict_types=1);
 namespace App\Infrastructure\Subscriber;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\{
-    HttpFoundation\JsonResponse,
-    EventDispatcher\EventSubscriberInterface,
-    HttpKernel\Event\GetResponseForExceptionEvent,
-    HttpKernel\KernelEvents,
-    Serializer\SerializerInterface};
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\Serializer\SerializerInterface;
 
 final class ExceptionSubscriber implements EventSubscriberInterface
 {
@@ -64,7 +63,7 @@ final class ExceptionSubscriber implements EventSubscriberInterface
         ];
     }
 
-    private function createFailureObject(string $message, int $code)
+    private function createFailureObject(string $message, int $code): \JsonSerializable
     {
         return new class($message, $code) implements \JsonSerializable {
             /** @var string */

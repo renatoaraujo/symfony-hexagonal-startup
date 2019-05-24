@@ -21,16 +21,16 @@ vendor:
 test:
 	docker-compose exec app bin/phpunit -c phpunit.xml
 
-.PHONY: migrations
-migrations:
+.PHONY: diff
+diff:
 	docker-compose exec app bin/console doctrine:migrations:diff -n
 
 .PHONY: migrate
 migrate:
 	docker-compose exec app bin/console doctrine:migrations:migrate -n
 
-.PHONY: load-data
-load-data:
+.PHONY: fixtures
+fixtures:
 	docker-compose exec app bin/console doctrine:fixtures:load -n
 
 .PHONY: db
@@ -40,13 +40,13 @@ db: migrate load-data
 stats:
 	docker-compose ps
 
-.PHONY: clear-cache
-clear-cache:
+.PHONY: cache
+cache:
 	docker-compose exec app bin/console cache:clear
 	docker-compose exec app bin/console cache:warmup
 
-.PHONY: fresh
-fresh:
+.PHONY: destroy
+destroy:
 	docker-compose down
 	rm -rf vendor
 
