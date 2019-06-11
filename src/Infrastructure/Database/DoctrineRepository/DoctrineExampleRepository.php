@@ -19,7 +19,10 @@ final class DoctrineExampleRepository implements ExampleRepository
 
     public function load(): array
     {
-        $repository = $this->entityManager->getRepository(Example::class);
+        $repository = $this
+            ->entityManager
+            ->getRepository(Example::class);
+
         return $repository->findAll();
     }
 }

@@ -4,12 +4,11 @@ declare(strict_types=1);
 namespace App\Infrastructure\Subscriber;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\{
-    HttpFoundation\JsonResponse,
-    EventDispatcher\EventSubscriberInterface,
-    HttpKernel\Event\GetResponseForExceptionEvent,
-    HttpKernel\KernelEvents,
-    Serializer\SerializerInterface};
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\Serializer\SerializerInterface;
 
 final class ExceptionSubscriber implements EventSubscriberInterface
 {
@@ -25,7 +24,7 @@ final class ExceptionSubscriber implements EventSubscriberInterface
         $this->serializer = $serializer;
     }
 
-    public function onKernelException(GetResponseForExceptionEvent $event): void
+    public function onKernelException(ExceptionEvent $event): void
     {
         $exception = $event->getException();
         $statusCode = 500;
@@ -51,7 +50,7 @@ final class ExceptionSubscriber implements EventSubscriberInterface
 
     private function generateLogs(\Throwable $exception)
     {
-        $this->logger->error('Falha na execução', [
+        $this->logger->error('Failure', [
             'Message' => $exception->getMessage(),
             'Stack Trace' => $exception->getTraceAsString(),
         ]);
@@ -64,16 +63,16 @@ final class ExceptionSubscriber implements EventSubscriberInterface
         ];
     }
 
-    private function createFailureObject(string $message, int $code)
+    private function createFailureObject(string $message, int $code): \JsonSerializable
     {
-        return new class($message, $code) implements \JsonSerializable {
-            /** @var string */
+        return new class($code, $message) implements \JsonSerializable {
+            /** @var int */
             private $code;
 
-            /** @var int */
+            /** @var string */
             private $message;
 
-            public function __construct(string $code, int $message)
+            public function __construct(int $code, string $message)
             {
                 $this->code = $code;
                 $this->message = $message;
