@@ -107,9 +107,6 @@
     "psr/log": {
         "version": "1.1.0"
     },
-    "psr/simple-cache": {
-        "version": "1.0.1"
-    },
     "ramsey/uuid": {
         "version": "3.8.0"
     },
@@ -122,11 +119,17 @@
             "ref": "f7895777cd673fcefbc321a9063077a24e5df646"
         }
     },
+    "roave/security-advisories": {
+        "version": "dev-master"
+    },
     "symfony/browser-kit": {
         "version": "v4.1.8"
     },
     "symfony/cache": {
         "version": "v4.1.8"
+    },
+    "symfony/cache-contracts": {
+        "version": "v1.1.1"
     },
     "symfony/config": {
         "version": "v4.1.8"
@@ -139,9 +142,6 @@
             "version": "3.3",
             "ref": "f3a28efb32f20b8740fd763651cabd780bce43da"
         }
-    },
-    "symfony/contracts": {
-        "version": "v1.0.2"
     },
     "symfony/debug": {
         "version": "v4.1.8"
@@ -160,6 +160,9 @@
     },
     "symfony/event-dispatcher": {
         "version": "v4.1.8"
+    },
+    "symfony/event-dispatcher-contracts": {
+        "version": "v1.1.1"
     },
     "symfony/filesystem": {
         "version": "v4.1.8"
@@ -194,6 +197,9 @@
     "symfony/inflector": {
         "version": "v4.1.8"
     },
+    "symfony/mime": {
+        "version": "v4.3.1"
+    },
     "symfony/orm-pack": {
         "version": "v1.0.5"
     },
@@ -206,11 +212,17 @@
             "ref": "0e548dd90adba18fabd4ef419b14d361fe4d6c74"
         }
     },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.11.0"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.10.0"
     },
     "symfony/polyfill-php72": {
         "version": "v1.10.0"
+    },
+    "symfony/polyfill-php73": {
+        "version": "v1.11.0"
     },
     "symfony/property-access": {
         "version": "v4.1.8"
@@ -232,6 +244,9 @@
     },
     "symfony/serializer-pack": {
         "version": "v1.0.1"
+    },
+    "symfony/service-contracts": {
+        "version": "v1.1.2"
     },
     "symfony/stopwatch": {
         "version": "v4.2.4"
