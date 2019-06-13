@@ -2,7 +2,6 @@
 
 namespace App\Tests\Application\Http\Example;
 
-
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 final class GetExampleDataTest extends WebTestCase
