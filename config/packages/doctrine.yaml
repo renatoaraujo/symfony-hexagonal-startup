@@ -4,7 +4,6 @@ parameters:
 doctrine:
   dbal:
     driver: 'pdo_mysql'
-    server_version: '8'
     charset: utf8mb4
     default_table_options:
       charset: utf8mb4
@@ -13,7 +12,7 @@ doctrine:
     url: '%env(resolve:DATABASE_URL)%'
   orm:
     auto_generate_proxy_classes: true
-    naming_strategy: doctrine.orm.naming_strategy.underscore
+    naming_strategy: doctrine.orm.naming_strategy.default
     auto_mapping: true
     mappings:
       DoctrineEntity:

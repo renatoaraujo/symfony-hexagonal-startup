@@ -64,11 +64,10 @@ final class ExceptionSubscriber implements EventSubscriberInterface
     private function createFailureObject(string $message, int $code): \JsonSerializable
     {
         return new class($code, $message) implements \JsonSerializable {
-            /** @var int */
-            private $code;
 
-            /** @var string */
-            private $message;
+            private int $code;
+
+            private string $message;
 
             public function __construct(int $code, string $message)
             {

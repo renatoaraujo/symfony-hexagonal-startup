@@ -7,8 +7,7 @@ use App\Core\Example\Repository\ExampleRepository;
 
 final class Service
 {
-    /** @var ExampleRepository */
-    private $exampleRepository;
+    private ExampleRepository $exampleRepository;
 
     public function __construct(ExampleRepository $exampleRepository)
     {

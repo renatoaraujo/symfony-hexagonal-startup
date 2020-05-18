@@ -9,10 +9,8 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 final class GetExampleData
 {
-    /** @var Service */
     private Service $service;
 
-    /** @var SerializerInterface */
     private SerializerInterface $serializer;
 
     public function __construct(Service $service, SerializerInterface $serializer)
@@ -21,7 +19,7 @@ final class GetExampleData
         $this->serializer = $serializer;
     }
 
-    public function __invoke()
+    public function __invoke(): JsonResponse
     {
         $exampleData = $this->service->loadExampleData();
         $serialized = $this->serializer->serialize($exampleData, 'json');

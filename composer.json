@@ -15,20 +15,19 @@
     "symfony/yaml": "^5.0"
   },
   "require-dev": {
-    "symfony/browser-kit": "^5.0",
-    "symfony/dotenv": "^5.0",
-    "symfony/var-dumper": "^5.0",
-    "symfony/test-pack": "^1.0",
     "doctrine/doctrine-fixtures-bundle": "^3",
     "liip/functional-test-bundle": "^4.0.0",
-    "roave/security-advisories": "dev-master"
+    "roave/security-advisories": "dev-master",
+    "symfony/error-handler": "^5.0",
+    "symfony/dotenv": "^5.0",
+    "symfony/test-pack": "^1.0",
+    "symfony/var-dumper": "^5.0"
   },
   "config": {
     "preferred-install": {
       "*": "dist"
     },
-    "sort-packages": true,
-    "bin-dir": "bin/"
+    "sort-packages": true
   },
   "autoload": {
     "psr-4": {

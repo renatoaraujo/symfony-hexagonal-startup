@@ -14,18 +14,15 @@ use Ramsey\Uuid\UuidInterface;
 class Example
 {
     /**
-     * @var \Ramsey\Uuid\UuidInterface
-     *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
      */
-    private $id;
+    private UuidInterface $id;
 
     /**
-     * @var string
      * @ORM\Column(type="string")
      */
-    private $value;
+    private string $value;
 
     public function __construct(string $value)
     {

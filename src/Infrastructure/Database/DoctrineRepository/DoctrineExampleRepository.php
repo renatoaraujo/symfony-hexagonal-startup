@@ -9,8 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 final class DoctrineExampleRepository implements ExampleRepository
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
