@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use phpDocumentor\Reflection\Types\Iterable_;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
