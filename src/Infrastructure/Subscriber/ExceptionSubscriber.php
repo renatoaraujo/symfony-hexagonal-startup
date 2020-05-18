@@ -12,11 +12,9 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 final class ExceptionSubscriber implements EventSubscriberInterface
 {
-    /** @var LoggerInterface */
-    private $logger;
+    private LoggerInterface $logger;
 
-    /** @var SerializerInterface */
-    private $serializer;
+    private SerializerInterface $serializer;
 
     public function __construct(LoggerInterface $logger, SerializerInterface $serializer)
     {
@@ -26,7 +24,7 @@ final class ExceptionSubscriber implements EventSubscriberInterface
 
     public function onKernelException(ExceptionEvent $event): void
     {
-        $exception = $event->getException();
+        $exception = $event->getThrowable();
         $statusCode = 500;
 
         if ($exception->getCode() >= 400 && $exception->getCode() <= 599) {

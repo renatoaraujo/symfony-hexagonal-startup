@@ -4,7 +4,7 @@ namespace App\Tests\Database\Fixtures;
 
 use App\Infrastructure\Database\DoctrineEntity\Example;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 final class ExampleFixture extends Fixture
 {

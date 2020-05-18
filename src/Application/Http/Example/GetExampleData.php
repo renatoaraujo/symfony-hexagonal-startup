@@ -10,10 +10,10 @@ use Symfony\Component\Serializer\SerializerInterface;
 final class GetExampleData
 {
     /** @var Service */
-    private $service;
+    private Service $service;
 
     /** @var SerializerInterface */
-    private $serializer;
+    private SerializerInterface $serializer;
 
     public function __construct(Service $service, SerializerInterface $serializer)
     {

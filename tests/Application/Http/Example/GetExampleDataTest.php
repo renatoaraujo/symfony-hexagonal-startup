@@ -1,16 +1,16 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Tests\Application\Http\Example;
 
-
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 final class GetExampleDataTest extends WebTestCase
 {
     public function testGetExampleDataWithSuccessfulRequest(): void
     {
-        $client = static::createClient();
+        $client = $this->makeClient();
         $client->request('GET', '/example');
-        $this->assertTrue($client->getResponse()->isSuccessful());
+        $this->assertStatusCode(200, $client);
     }
 }

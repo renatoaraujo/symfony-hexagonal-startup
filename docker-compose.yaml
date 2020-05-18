@@ -2,12 +2,12 @@ version: "3"
 
 services:
   app:
-    build: ./build/app/.
+    build: .
     container_name: symfony_app
     expose:
       - "9000"
     volumes:
-      - .:/var/www/html
+      - .:/app
     links:
       - database
     depends_on:
@@ -19,7 +19,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - .:/var/www/html
+      - .:/app
       - ./build/nginx/config/default.conf:/etc/nginx/conf.d/default.conf
     links:
       - app
@@ -27,7 +27,7 @@ services:
       - app
 
   database:
-    image: mysql:8
+    image: mariadb
     container_name: symfony_db
     command: --default-authentication-plugin=mysql_native_password
     environment:
