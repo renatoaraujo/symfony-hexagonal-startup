@@ -3,7 +3,7 @@ Symfony startup
 
 This is just a simple startup for a Symfony project ready for web rest application using Hexagonal Architecture structure.
 
-This is a docker based application, so you **MUST** have the Docker running in your local machine or you will need to setup the environment by hand using PHP 7.3 and MySQL 8.
+This is a docker based application, so you **MUST** have the Docker running in your local machine or you will need to setup the environment by hand using PHP 7.4 and MariaDB 10 or MySQL 8.
 
 ### Requirements
 
@@ -20,9 +20,9 @@ $ make setup
 
 #### Database
 
-To setup the database from scratch (Added sleep time of 25s just for the first installation):
+To setup the database from scratch:
 ```bash
-$ make database
+$ make migrate && make fixtures
 ```
 
 To run the migrations only without load any fixtures:
