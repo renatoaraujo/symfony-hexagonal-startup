@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
+use App\Domain\Exception\EmptyProductIdException;
 use App\Domain\Exception\InvalidProductIdException;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -27,6 +28,9 @@ final class ProductId
      */
     public static function fromString(string $uuid): ProductId
     {
+        if (empty($uuid)) {
+            throw new EmptyProductIdException();
+        }
         if (!Uuid::isValid($uuid)) {
             throw InvalidProductIdException::withInvalidUuid($uuid);
         }
