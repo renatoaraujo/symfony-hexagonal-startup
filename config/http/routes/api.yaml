@@ -1,0 +1,4 @@
+api.create_new_product:
+  path: /product
+  methods: [POST]
+  controller: App\Application\Http\Api\CreateNewProductAction
