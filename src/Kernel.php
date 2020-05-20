@@ -14,7 +14,7 @@ final class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-    const CONFIG_EXTS = '.{php,xml,yaml,yml}';
+    private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
     public function getVarDir(): string
     {
