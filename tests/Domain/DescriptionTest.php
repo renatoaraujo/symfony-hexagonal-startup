@@ -8,7 +8,6 @@ use App\Domain\Exception\InvalidDescriptionLengthException;
 use Faker\Generator;
 use PHPUnit\Framework\TestCase;
 use Faker;
-use function random_bytes;
 
 final class DescriptionTest extends TestCase
 {
@@ -23,20 +22,23 @@ final class DescriptionTest extends TestCase
     {
         $descriptionText = $this->generator->text(140);
         $description = Description::fromString($descriptionText);
+
         $this->assertEquals($descriptionText, $description->__toString());
     }
 
     public function testItCantConstructDescriptionWithLessThan10Characters(): void
     {
-        $this->expectException(InvalidDescriptionLengthException::class);
         $descriptionText = $this->generator->text(9);
+
+        $this->expectException(InvalidDescriptionLengthException::class);
         Description::fromString($descriptionText);
     }
 
     public function testItCantConstructDescriptionWithMoreThan140Characters(): void
     {
-        $this->expectException(InvalidDescriptionLengthException::class);
         $descriptionText = random_bytes(180);
+
+        $this->expectException(InvalidDescriptionLengthException::class);
         Description::fromString($descriptionText);
     }
 }

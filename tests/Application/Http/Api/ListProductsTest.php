@@ -5,7 +5,6 @@ namespace App\Tests\Application\Http\Api;
 
 use App\Application\Http\Api\ListProductAction;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
-use function json_decode;
 
 final class ListProductsTest extends WebTestCase
 {
@@ -13,7 +12,7 @@ final class ListProductsTest extends WebTestCase
     {
         $client = $this->makeClient();
         $client->request('GET', '/product');
-        $this->assertStatusCode(200, $client);
+        self::assertStatusCode(200, $client);
 
         $data = $client->getResponse()->getContent();
         $unserializedData = json_decode($data, true, 512, JSON_THROW_ON_ERROR);

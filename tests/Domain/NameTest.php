@@ -9,7 +9,6 @@ use App\Domain\Name;
 use Faker\Generator;
 use PHPUnit\Framework\TestCase;
 use Faker;
-use function random_bytes;
 
 final class NameTest extends TestCase
 {

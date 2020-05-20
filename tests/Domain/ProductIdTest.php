@@ -10,7 +10,6 @@ use Faker\Generator;
 use PHPUnit\Framework\TestCase;
 use Faker;
 use Ramsey\Uuid\Uuid;
-use function random_bytes;
 
 final class ProductIdTest extends TestCase
 {
