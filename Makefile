@@ -2,9 +2,11 @@
 setup: build up fix-permissions vendor cache environment-file sleep migrate fixtures stats
 
 build:
+	@set -o allexport; source .env; set +o allexport
 	@docker-compose build
 
 up:
+	@set -o allexport; source .env; set +o allexport
 	@docker-compose up -d
 
 down:
@@ -52,5 +54,8 @@ sleep:
 environment-file:
 	@docker-compose exec app cp -u .env .env.local
 
+create-missing-dir:
+	@docker-compose exec app mkdir -p /app/var/cache /app/var/log
+
 fix-permissions:
-	@docker-compose exec app chmod -R 777 bin var
+	@docker-compose exec app chmod -R 777 /app/bin /app/var

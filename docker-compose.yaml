@@ -3,7 +3,7 @@ version: "3"
 services:
   app:
     build: .
-    container_name: symfony_app
+    container_name: ${APP_NAME}_app
     expose:
       - "9000"
     volumes:
@@ -15,7 +15,7 @@ services:
 
   nginx:
     image: nginx:stable-alpine
-    container_name: symfony_nginx
+    container_name: ${APP_NAME}_nginx
     ports:
       - "8080:80"
     volumes:
@@ -28,10 +28,11 @@ services:
 
   database:
     image: mariadb
-    container_name: symfony_db
-    command: --default-authentication-plugin=mysql_native_password
+    container_name: ${APP_NAME}_db
     environment:
-      MYSQL_DATABASE: symfony
-      MYSQL_ROOT_PASSWORD: symfony
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
     ports:
       - "3306:3306"

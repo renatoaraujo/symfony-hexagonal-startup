@@ -13,5 +13,6 @@ WORKDIR /app
 
 RUN composer global require hirak/prestissimo
 
-RUN mkdir -p var/cache var/log var/sessions \
-	&& chown -R www-data var
+RUN mkdir -p /app/var/cache /app/var/log \
+	&& chown -R www-data /app/var \
+	&& chmod -R 777 /app/var
