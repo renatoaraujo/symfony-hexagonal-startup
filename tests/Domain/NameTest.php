@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Domain;
 
-use App\Domain\Exception\EmptyProductNameException;
+use App\Domain\Exception\EmptyNameException;
 use App\Domain\Exception\InvalidNameLengthException;
 use App\Domain\Name;
 use Faker\Generator;
@@ -36,7 +36,7 @@ final class NameTest extends TestCase
 
     public function testItCantConstructEmptyName(): void
     {
-        $this->expectException(EmptyProductNameException::class);
+        $this->expectException(EmptyNameException::class);
         Name::fromString('');
     }
 
