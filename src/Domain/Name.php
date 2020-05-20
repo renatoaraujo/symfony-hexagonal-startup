@@ -14,6 +14,10 @@ final class Name
     {
     }
 
+    /**
+     * @throws EmptyProductNameException
+     * @throws InavalidProductNameException
+     */
     public static function fromString(string $name): Name
     {
         if (empty($name)) {
