@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Domain;
 
 use App\Domain\Exception\EmptyProductNameException;
-use App\Domain\Exception\InavalidProductNameException;
+use App\Domain\Exception\InvalidNameLengthException;
 
 final class Name
 {
@@ -16,7 +16,7 @@ final class Name
 
     /**
      * @throws EmptyProductNameException
-     * @throws InavalidProductNameException
+     * @throws InvalidNameLengthException
      */
     public static function fromString(string $name): Name
     {
@@ -24,8 +24,12 @@ final class Name
             throw new EmptyProductNameException();
         }
 
-        if (3 < strlen($name)) {
-            throw InavalidProductNameException::withInvalidLength($name);
+        if (3 > strlen($name)) {
+            throw InvalidNameLengthException::fromMinLengthViolation($name);
+        }
+
+        if (100 < strlen($name)) {
+            throw InvalidNameLengthException::fromMaxLengthViolation($name);
         }
 
         $nameInstance = new self();
