@@ -26,14 +26,14 @@ final class DescriptionTest extends TestCase
         $this->assertEquals($descriptionText, $description->__toString());
     }
 
-    public function testItCantConstructWithLessThan10CharactersDescription(): void
+    public function testItCantConstructDescriptionWithLessThan10Characters(): void
     {
         $this->expectException(InvalidDescriptionLengthException::class);
         $descriptionText = $this->generator->text(9);
         Description::fromString($descriptionText);
     }
 
-    public function testItCantConstructWithMoreThan140CharactersDescription(): void
+    public function testItCantConstructDescriptionWithMoreThan140Characters(): void
     {
         $this->expectException(InvalidDescriptionLengthException::class);
         $descriptionText = random_bytes(180);
