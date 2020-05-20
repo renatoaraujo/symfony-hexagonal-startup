@@ -19,12 +19,12 @@ vendor-update:
 	@docker-compose exec app composer update --no-scripts
 
 test:
-	@docker-compose exec app rm -rf tests/migrations var/db
-	@docker-compose exec app mkdir var/db
-	@docker-compose exec app chmod -R 777 var/db
-	@docker-compose exec app bin/console --env test doctrine:migrations:diff -n
-	@docker-compose exec app bin/console --env test doctrine:migrations:migrate -n
-	@docker-compose exec app vendor/bin/phpunit --configuration phpunit.xml
+	@docker-compose exec app rm -rf tests/migrations var/db \
+		&& mkdir var/db \
+		&& chmod -R 777 var/db \
+		&& bin/console --env test doctrine:migrations:diff -n \
+		&& bin/console --env test doctrine:migrations:migrate -n \
+		&& vendor/bin/phpunit --configuration phpunit.xml
 
 diff:
 	@docker-compose exec app bin/console doctrine:migrations:diff -n
@@ -39,8 +39,8 @@ stats:
 	@docker-compose ps
 
 cache:
-	@docker-compose exec app bin/console cache:clear
-	@docker-compose exec app bin/console cache:warmup
+	@docker-compose exec app bin/console cache:clear \
+		&& bin/console cache:warmup
 
 destroy:
 	@docker-compose down

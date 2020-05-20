@@ -6,7 +6,7 @@ namespace App\Application\Http\Api;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 
-final class CreateNewProductAction
+final class CreateProductAction
 {
     private SerializerInterface $serializer;
 
@@ -20,6 +20,12 @@ final class CreateNewProductAction
         $serialized = $this->serializer->serialize([
             'CALL' => self::class
         ], 'json');
-        return new JsonResponse($serialized, JsonResponse::HTTP_OK);
+
+        return new JsonResponse(
+            $serialized,
+            JsonResponse::HTTP_OK,
+            [],
+            true
+        );
     }
 }

@@ -12,3 +12,7 @@ services:
   App\Application\Http\:
     resource: '../src/Application/Http'
     tags: ['controller.service_arguments']
+
+  App\Application\Resolver\UuidValueResolver:
+    tags:
+      - { name: controller.argument_value_resolver, priority: 500 }

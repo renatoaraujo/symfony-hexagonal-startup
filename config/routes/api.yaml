@@ -1,0 +1,14 @@
+api.create_product:
+  path: /product
+  methods: [POST]
+  controller: App\Application\Http\Api\CreateProductAction
+
+api.read_product:
+  path: /product/{uuid}
+  methods: [GET]
+  controller: App\Application\Http\Api\ReadProductAction
+
+api.list_product:
+  path: /product
+  methods: [GET]
+  controller: App\Application\Http\Api\ListProductAction
