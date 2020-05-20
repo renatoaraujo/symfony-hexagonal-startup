@@ -1,4 +1,4 @@
-.PHONY: setup build up down vendor test diff migrate fixtures stats cache destroy environment-file sleep fix-permissions
+.PHONY: setup build up down vendor test diff migrate fixtures stats cache destroy environment-file sleep fix-permissions create-missing-dirs
 setup: build up fix-permissions vendor cache environment-file sleep migrate fixtures stats
 
 build:
@@ -54,7 +54,7 @@ sleep:
 environment-file:
 	@docker-compose exec app cp -u .env .env.local
 
-create-missing-dir:
+create-missing-dirs:
 	@docker-compose exec app mkdir -p /app/var/cache /app/var/log
 
 fix-permissions:
