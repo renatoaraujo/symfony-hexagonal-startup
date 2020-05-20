@@ -16,10 +16,11 @@
   },
   "require-dev": {
     "doctrine/doctrine-fixtures-bundle": "^3",
+    "fzaninotto/faker": "^1.9",
     "liip/functional-test-bundle": "^4.0.0",
     "roave/security-advisories": "dev-master",
-    "symfony/error-handler": "^5.0",
     "symfony/dotenv": "^5.0",
+    "symfony/error-handler": "^5.0",
     "symfony/test-pack": "^1.0",
     "symfony/var-dumper": "^5.0"
   },
